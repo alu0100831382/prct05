@@ -41,6 +41,16 @@ class Fraccionario
         return @n,@d
     end
     
+    #Metodo que multiplica los dos numeros
+    def multiplicar(n, d)
+        n,d = reducir(n, d)
+        @n *= n
+        @d *= d
+        reducir(@n, @d)
+        return @n, @d
+    end
+    
+    #Sobrecarga de operadores
     def *(value)
         Fraccionario.new(@n * value, @d)
     end
