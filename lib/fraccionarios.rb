@@ -5,7 +5,7 @@ class Fraccionario
     attr_reader :n, :d
     
     #Inicializas las variables
-    def initialize(n,d)
+    def initialize(n, d)
         @n, @d = reducir(n, d)
     end
     
@@ -30,11 +30,11 @@ class Fraccionario
     
     #Metodo que suma los dos numeros racionales
     def suma(n, d)
-        if(@d ==d)
+        if(@d == d)
            @n += n
            @n, @d = reducir(@n, @d)
         else
-            new_d = mcm(@d, d)
+            new_d = lcm(@d, d)
             new_n = ((new_d / @d) *@n ) + ((new_d / d) *n )    
             @n, @d = reducir(new_n,new_d)
         end
@@ -45,9 +45,9 @@ class Fraccionario
     def resta(n, d)
         if(@d == d)
             @n -= n
-            @n,@d = reducir(@n, @d)
+            @n, @d = reducir(@n, @d)
         else
-            new_d = mcm(@d, d)
+            new_d = lcm(@d, d)
             new_n = ((new_d / @d) *@n ) - ((new_d / d) *n )    
             @n, @d = reducir(new_n, new_d)
         end
