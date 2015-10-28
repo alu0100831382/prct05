@@ -9,7 +9,7 @@ class Fraccionario
         @n, @d = reducir(n, d)
     end
     
-    #Metodo que devuelve la representacion
+    #Metodo que devuelve
     def to_s
         "(#{@n}/#{@d})"
     end
@@ -26,6 +26,31 @@ class Fraccionario
         n = n / aux
         d = d / aux
         return n, d
+    end
+    
+    #Metodo que suma los numeros
+    def suma(n, d)
+        if(@d ==d)
+           @n += n
+           @n, @d = reducir(@n, @d)
+        else
+            new_d = mcm(@d, d)
+            new_n = ((new_d / @d) *@n ) + ((new_d / d) *n )    
+            @n, @d = reducir(new_n,new_d)
+        end
+        return @n,@d
+    end
+    
+    def *(value)
+        Fraccionario.new(@n * value, @d)
+    end
+    
+    def -@
+        Fraccionario.new(@n * -1, @d)
+    end
+    
+    def +(other)
+        Fraccionario.new(@n, @d).suma(other.n, other.d) 
     end
     
     
