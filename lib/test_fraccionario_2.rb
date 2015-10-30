@@ -1,14 +1,9 @@
-require './fraccionarios'
+require './fraccionario'
 require 'test/unit'
 
 class TestPoint < Test::Unit::TestCase
-  
-  #Test simple
-  def test_simple
-    assert_equal("(1/2)", Fraccionario.new(2,4).to_s)
-  end
-  
-  #Test que suma los numeros racionales
+    
+#Test que suma los numeros racionales
   def test_suma
     assert_equal([22,15], Fraccionario.new(2,3).suma(4,5)) 
     assert_equal([1,1], Fraccionario.new(1,2).suma(2,4)) 
