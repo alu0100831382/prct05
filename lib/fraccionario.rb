@@ -1,4 +1,4 @@
-require './gcd'
+require '/home/ubuntu/workspace/lib/gcd'
 
 class Fraccionario
     
